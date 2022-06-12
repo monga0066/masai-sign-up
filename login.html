@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        img{
+            margin-left: 45%;
+            margin-top: 30px;
+        }
+        #cont{
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            margin: auto;
+            width: 450px;
+            border-radius: 4px;
+            height: 500px;
+        }
+        button{
+            padding: 10px 150px;
+            text-align: center;
+            margin-top: 100px;
+            border-radius: 10px;
+            border: none;
+            background-color: skyblue;
+            color: aliceblue;
+            margin-left: 43px;
+            
+        }
+        input{
+            width: 350px;
+            margin-left: 40px;
+            border-radius: 13px;
+            border: 1px solid gray;
+            height: 30px;
+            
+            
+        }
+        h3{
+            margin-left: 40px;
+            color: gray;
+            font-size: 15px;
+        }
+        #cont>div{
+            border: 1px solid white;
+            width: 150px;
+            margin: auto;
+        }
+        
+            
+        
+        p{
+            text-align: center;
+            color: black;
+            font-size: medium;
+        }
+        p+p{
+            color: blue;
+            font-size: large;
+        }
+        </style>
+        
+    <title>Document</title>
+</head>
+<body>
+    <img src="https://sso.masaischool.com/brand_dark.svg" alt="">
+    <div id="cont">
+        <div><h2>LOGIN IN</h2></div>
+        
+        <h3>Email</h3>
+        <input id="em" type="email" placeholder="Email" value="">
+        <h3>Password</h3>
+        <input id="pass" type="text" placeholder="Password" value=""> <br>
+        <button>LOGIN IN</button>
+        <p>If Not Have Account? </p><p><a href="signup.html">Sign Up</a>
+            </p>
+    </div>
+</body>
+</html>
+<script>
+
+    let arr= JSON.parse(localStorage.getItem("users")) || [];
+
+    document.querySelector('button').addEventListener('click', myfunction)
+
+    function myfunction(event){
+        let email = document.querySelector("#em").value;
+        let password = document.querySelector("#pass").value
+        let user = false;
+        arr.forEach(function(e){
+            if(e.email === email && e.password === password){
+                user = true;
+            }
+
+        })
+
+        if(user === true){
+            alert("Logged in");
+        }else{
+            alert("incorrect email or password");
+        }
+    }
+
+</script>
+</html>

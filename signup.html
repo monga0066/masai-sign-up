@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        img{
+            margin-left: 45%;
+            margin-top: 30px;
+        } 
+        #cont{
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            margin: auto;
+            width: 450px;
+            border-radius: 4px;
+            height: 550px;
+        }
+        button{
+            padding: 10px 150px;
+            text-align: center;
+            margin-top: 100px;
+            border-radius: 10px;
+            border: none;
+            background-color: skyblue;
+            color: aliceblue;
+            margin-left: 43px;
+            
+        }
+        input{
+            width: 350px;
+            margin-left: 40px;
+            border-radius: 13px;
+            border: 1px solid gray;
+            height: 30px;
+            
+            
+        }
+        h3{
+            margin-left: 40px;
+            color: gray;
+            font-size: 15px;
+        }
+        #cont>div{
+            border: 1px solid white;
+            width: 100px;
+            margin: auto;
+        }
+        
+            
+        
+        p{
+            text-align: center;
+            color: black;
+            font-size: medium;
+        }
+        p+p{
+            color: blue;
+            font-size: large;
+        }
+        </style>
+    <title>Document</title>
+</head>
+<body>
+    
+    <form>
+    <img src="https://sso.masaischool.com/brand_dark.svg" alt="">
+    <div id="cont">
+        <div><h2>SIGN UP</h2></div>
+        <h3> Full Name</h3>
+        <input id="naam" type="text" placeholder="Entre Your Full Name" value="">
+        <h3>Email</h3>
+        <input id="em" type="text" placeholder="Email" value="">
+        <h3>Password</h3>
+        <input id="pass" type="password" placeholder="Password" value=""> <br>
+        <button>SIGN UP</button>
+        <p>Already have an account?<span>
+            <a href="login.html">LOGIN IN</a>
+        </span>
+        </p> 
+    </div>
+</form>
+
+</body>
+<script>
+    document.querySelector("button").addEventListener("click",myfunction)
+
+    let arr= JSON.parse(localStorage.getItem("users")) || [];
+
+    function myfunction(event){
+        event.preventDefault()
+        let obj={
+            name:document.querySelector("#naam").value,
+            email:document.querySelector("#em").value,
+            password:document.querySelector("#pass").value
+
+        }
+        arr.push(obj)
+        localStorage.setItem("users", JSON.stringify(arr));
+        window.location.href = "login.html"
+    }
+
+</script>
+</html>
+
